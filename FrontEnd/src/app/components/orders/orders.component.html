@@ -1,0 +1,19 @@
+<h1>Your Orders</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">order id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orderService.orders">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.title}}</td>
+        <td>{{item.price}}</td>
+        <td> Purchased </td>
+      </tr>
+    </tbody>
+  </table>

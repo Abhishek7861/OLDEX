@@ -1,0 +1,29 @@
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <h3>OLDEX</h3>
+        <p (loggedIn) = "UserActive($event)"></p>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a [routerLink]="['/']" class="nav-link px-2 text-white">Home</a></li>
+          <!-- <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li> -->
+          <li><a [routerLink]="['/about']" class="nav-link px-2 text-white">About</a></li>
+          <li><a [routerLink]="['/dashboard']" class="nav-link px-2 text-white">My Listing</a></li>
+          <li><a [routerLink]="['/all']" class="nav-link px-2 text-white">All Listing</a></li>
+          <li><a [routerLink]="['/orders']" class="nav-link px-2 text-white">MyOrders</a></li>
+        </ul>
+
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form> -->
+          <div class="text-end">
+            <a (click)="Profile()" class="btn btn-primary me-2">Profile</a>  
+            <a [routerLink]="['/login']" class="btn btn-success me-2">Login</a>
+            <a [routerLink]="['/register']" class="btn btn-warning me-2">Signup</a>
+            <a (click)="Logout()" class="btn btn-danger me-2">Logout</a>
+          </div>
+      </div>
+    </div>
+  </header>
