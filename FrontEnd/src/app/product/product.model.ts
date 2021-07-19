@@ -4,5 +4,5 @@ export class Product {
     price: number;
     description:string;
     title:string;
-    userid:number;
+    username:string;
 }

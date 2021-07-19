@@ -35,8 +35,14 @@ public class OrderController {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
         String username = userDetails.getUsername();
+        Order soldOrder = new Order();
+        soldOrder.setAction("Sold");
+        soldOrder.setPrice(order.getPrice());
+        soldOrder.setTitle(order.getTitle());
+        soldOrder.setUsername(order.getUsername());
+        orderService.addOrder(soldOrder);
         order.setUsername(username);
+        order.setAction("Purchased");
         return orderService.addOrder(order);
     }
-
 }

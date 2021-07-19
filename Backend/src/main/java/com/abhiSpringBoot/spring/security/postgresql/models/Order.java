@@ -18,13 +18,17 @@ public class Order {
     @Column(name = "username",nullable = false)
     private String username;
 
+    @Column(name = "action",nullable = false)
+    private String action;
+
     public Order(){}
 
-    public Order(long id, String title, double price, String username) {
+    public Order(long id, String title, double price, String username,String action) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.username = username;
+        this.action = action;
     }
 
     public long getId() {
@@ -57,5 +61,24 @@ public class Order {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", username='" + username + '\'' +
+                ", action='" + action + '\'' +
+                '}';
     }
 }

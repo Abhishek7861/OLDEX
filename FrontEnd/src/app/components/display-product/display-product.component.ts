@@ -35,7 +35,8 @@ export class DisplayProductComponent implements OnInit {
     if (confirm("Are you sure to Buy "+pro.title+" for "+pro.price+" ?")==true){
       const order = {
         title:pro.title,
-        price:pro.price
+        price:pro.price,
+        username:pro.username
       }
       this.OrderService.postOrder(order).subscribe(data=>{
         this.flashMessagesService.show("Successful Purchase! check your orders!",{cssClass: 'alert-success', timeout: 3000});

@@ -3,4 +3,5 @@ export class Order {
     title: string;
     price: number;
     userid: number;
+    action: string
 }
