@@ -1,6 +1,24 @@
 <div class="mt-5">
-    <h1>Profile</h1>
+  <h1>Profile</h1>
 </div>
-<p><b>Name:</b> {{name}}</p>
-<p><b>Email:</b> {{email}}</p>
-<a href = "mailto: {{email}}">Send Email</a>
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+                width="150">
+              <div class="mt-3">
+                <h4>{{name}}</h4>
+                <p class="text-secondary mb-1">{{email}}</p>
+                <a href="mailto: {{email}}" class="btn btn-primary">Send Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

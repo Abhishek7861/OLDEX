@@ -3,13 +3,15 @@
 <div class="container">
   <div class="row row-cols-3">
     <div *ngFor="let pro of productService.products" class="col mt-4">
-      <div class="card" style="width: 20rem;">
+      <div class="card bg-light" style="width: 20rem;">
+        <div class="card-header">Product Name: {{pro.title}}</div>
         <div class="card-body">
-          <h5 class="card-title">Name: {{pro.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Condition: {{pro.condition}}</h6>
           <p class="card-text">Description: {{pro.description}}</p>
           <p class="card-link">Price: &#x20b9;{{pro.price}}</p>
           <p> Listed By: {{pro.username}}</p>
+        </div>
+        <div class="card-footer bg-transparent border-success">
           <a (click)= "onListedBy(pro)" class="btn btn-warning card-link">Profile</a>
           <a (click)= "onBuy(pro)" class="btn btn-success card-link">Buy</a>
         </div>

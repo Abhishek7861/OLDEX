@@ -4,14 +4,14 @@
     <div class="col-8">
       <div class="row row-cols-3">
         <div *ngFor="let pro of productService.products" class="col mt-4">
-          <div class="card" style="width: 15rem;">
+          <div class="card bg-light" style="width: 15rem;">
             <div class="card-body">
               <h5 class="card-title">Name: {{pro.title}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Condition: {{pro.condition}}</h6>
               <p class="card-text">Description: {{pro.description}}</p>
               <p class="card-link">Price: &#x20b9;{{pro.price}}</p>
-              <a type="button" (click)="onEdit(pro)" class="btn btn-warning">EDIT</a>
-              <a type="button" (click)="onDelete(pro)" class="btn btn-danger">DELETE</a>
+              <a type="button" (click)="onEdit(pro)" class="btn btn-warning card-link">EDIT</a>
+              <a type="button" (click)="onDelete(pro)" class="btn btn-danger card-link">DELETE</a>
             </div>
           </div>
         </div>
