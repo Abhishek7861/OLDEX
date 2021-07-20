@@ -25,7 +25,8 @@ export class ProfileOtherComponent implements OnInit {
       this.flashMessagesService.show("Please login to view Profile",{cssClass: 'alert-danger', timeout: 3000});
     }
     else{
-      this.authService.getUser().subscribe((data)=>{
+      const username:any = localStorage.getItem("Username");
+      this.authService.getUserByUsername(username).subscribe((data)=>{
         let profile:any = data;
         this.id = profile.id;
         this.name = profile.name;

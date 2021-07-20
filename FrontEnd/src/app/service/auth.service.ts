@@ -33,6 +33,12 @@ export class AuthService {
     );
   }
 
+  getUserByUsername(username:string){
+    let authValue:any = localStorage.getItem("token");
+    let headers = new HttpHeaders({'Authorization':authValue});
+    return this.http.get('http://localhost:8080/api/test/user/'+username,{headers:headers});    
+  }
+
   getUser(){
     let authValue:any = localStorage.getItem("token");
     let headers = new HttpHeaders({'Authorization':authValue});
