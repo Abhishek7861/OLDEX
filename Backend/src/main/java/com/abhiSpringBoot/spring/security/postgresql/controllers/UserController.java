@@ -34,6 +34,13 @@ public class UserController {
 		return userService.getUser(username);
 	}
 
+	@GetMapping("/user/{username}")
+	@PreAuthorize("hasRole('USER')")
+	public Optional<User> getUser(@RequestHeader("Authorization") String param,@PathVariable String username) {
+
+		return userService.getUser(username);
+	}
+
 	@PutMapping("/user")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Object> userUpdate(@RequestHeader("Authorization") String param, @RequestBody User user) {
