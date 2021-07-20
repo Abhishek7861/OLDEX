@@ -1,4 +1,5 @@
 <h1>All Listing</h1>
+<p class="text-info">You can contact the person who listed the Product by clicking Profile or directly Buy by clicking Buy.</p>
 <div class="container">
   <div class="row row-cols-3">
     <div *ngFor="let pro of productService.products" class="col mt-4">
@@ -8,6 +9,8 @@
           <h6 class="card-subtitle mb-2 text-muted">Condition: {{pro.condition}}</h6>
           <p class="card-text">Description: {{pro.description}}</p>
           <p class="card-link">Price: &#x20b9;{{pro.price}}</p>
+          <p> Listed By: {{pro.username}}</p>
+          <a (click)= "onListedBy(pro)" class="btn btn-warning card-link">Profile</a>
           <a (click)= "onBuy(pro)" class="btn btn-success card-link">Buy</a>
         </div>
       </div>
