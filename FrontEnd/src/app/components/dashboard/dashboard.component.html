@@ -1,47 +1,71 @@
 <app-navbar></app-navbar>
 <div class="container">
   <flash-messages></flash-messages>
-<h1>My Listing</h1>
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-8">
-      <div class="row row-cols-3">
-        <div *ngFor="let pro of productService.products" class="col mt-4">
-          <div class="card bg-light" style="width: 15rem;">
-            <div class="card-body">
-              <h5 class="card-title">Name: {{pro.title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Condition: {{pro.condition}}</h6>
-              <p class="card-text">Description: {{pro.description}}</p>
-              <p class="card-link">Price: &#x20b9;{{pro.price}}</p>
-              <a type="button" (click)="onEdit(pro)" class="btn btn-warning card-link">EDIT</a>
-              <a type="button" (click)="onDelete(pro)" class="btn btn-danger card-link">DELETE</a>
+  <h1>My Listing</h1>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-8">
+        <div class="row row-cols-3">
+          <div *ngFor="let pro of productService.products" class="col mt-4">
+            <div class="card bg-light" style="width: 15rem;">
+              <!-- Card -->
+              <div class="card">
+
+                <div class="view zoom overlay">
+                  <a href="#!">
+                    <div class="mask">
+                      <img class="img-fluid w-100"
+                        src="https://cdn.pixabay.com/photo/2017/04/20/07/07/add-2244771_960_720.png">
+                      <div class="mask rgba-black-slight"></div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="card-body text-center">
+
+                  <h5>{{pro.title}}</h5>
+                  <p class="small text-muted text-uppercase mb-2">{{pro.description}}</p>
+                  <hr>
+                  <h6 class="mb-3">
+                    <span class="text-primary mr-1">&#x20b9;{{pro.price}}</span>
+                  </h6>
+
+                  <button type="button" (click)="onEdit(pro)" class="btn btn-warning">
+                    <i class="fas fa-shopping-cart"></i>Edit
+                  </button>
+                  <button type="button" (click)="onDelete(pro)" class="btn btn-danger ml-2">
+                    <i class="fas fa-shopping-cart"></i>Delete
+                  </button>
+                </div>
+
+              </div>
+              <!-- Card -->
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <h4>Add/Edit Product to Sell</h4>
-      <form (submit) = "onSubmit()">
-        <div class="mb-3">
-          <label for="productTitle" class="form-label">Product Title</label>
-          <input type="text" name="title" [(ngModel)]="title" class="form-control" id="productTitle">
-        </div>
-        <div class="mb-3">
-          <label for="Description" class="form-label">Description</label>
-          <input type="text" name="description" [(ngModel)]="description" class="form-control" id="Description">
-        </div>
-        <div class="mb-3">
-          <label for="Price" class="form-label">Price</label>
-          <input type="text" name="price" [(ngModel)]="price" class="form-control" id="Price">
-        </div>
-        <div class="mb-3">
-          <label for="Price" class="form-label">Condition</label>
-          <input type="text" name="condition" [(ngModel)]="condition" class="form-control" id="Price">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      <div class="col-4">
+        <h4>Add/Edit Product to Sell</h4>
+        <form (submit)="onSubmit()">
+          <div class="mb-3">
+            <label for="productTitle" class="form-label">Product Title</label>
+            <input type="text" name="title" [(ngModel)]="title" class="form-control" id="productTitle">
+          </div>
+          <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <input type="text" name="description" [(ngModel)]="description" class="form-control" id="Description">
+          </div>
+          <div class="mb-3">
+            <label for="Price" class="form-label">Price</label>
+            <input type="text" name="price" [(ngModel)]="price" class="form-control" id="Price">
+          </div>
+          <div class="mb-3">
+            <label for="Price" class="form-label">Condition</label>
+            <input type="text" name="condition" [(ngModel)]="condition" class="form-control" id="Price">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -1,25 +1,41 @@
 <app-navbar></app-navbar>
 <div class="container">
   <flash-messages></flash-messages>
-<h1>All Listing</h1>
-<p class="text-info">You can contact the person who listed the Product by clicking Profile or directly Buy by clicking Buy.</p>
-<div class="container">
-  <div class="row row-cols-3">
-    <div *ngFor="let pro of productService.products" class="col mt-4">
-      <div class="card bg-light" style="width: 20rem;">
-        <div class="card-header">Product Name: {{pro.title}}</div>
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">Condition: {{pro.condition}}</h6>
-          <p class="card-text">Description: {{pro.description}}</p>
-          <p class="card-link">Price: &#x20b9;{{pro.price}}</p>
-          <p> Listed By: {{pro.username}}</p>
+  <h1>All Listing</h1>
+  <p class="text-info">You can contact the person who listed the Product by clicking Profile or directly Buy by clicking
+    Buy.</p>
+  <div class="container">
+    <div class="row row-cols-3">
+      <div *ngFor="let pro of productService.products" class="col mt-4">
+        <div class="card">
+          <div class="view zoom overlay">
+            <a href="#!">
+              <div class="mask">
+                <img class="img-fluid"
+                  src="https://cdn.pixabay.com/photo/2017/04/20/07/07/add-2244771_960_720.png">
+              </div>
+            </a>
+          </div>
+
+          <div class="card-body text-center">
+            <h5>{{pro.title}}</h5>
+            <p class="small text-muted text-uppercase mb-2">{{pro.condition}}</p>
+            <hr>
+            <h6 class="mb-3">
+              <span class="text-grey">&#x20b9;{{pro.price}}</span>
+            </h6>
+
+            <button type="button" (click)= "onBuy(pro)" class="btn btn-primary btn-sm mr-1 mb-2">
+              <i class="fas fa-shopping-cart "></i>Buy
+            </button>
+            <button type="button" (click)= "onListedBy(pro)" class="btn btn-warning btn-sm mr-1 mb-2">
+              <i class="fas fa-shopping-cart "></i>Seller Profile
+            </button>
+          </div>
+
         </div>
-        <div class="card-footer bg-transparent border-success">
-          <a (click)= "onListedBy(pro)" class="btn btn-warning card-link">Profile</a>
-          <a (click)= "onBuy(pro)" class="btn btn-success card-link">Buy</a>
-        </div>
+        <!-- Card -->
       </div>
     </div>
   </div>
-</div>
 </div>

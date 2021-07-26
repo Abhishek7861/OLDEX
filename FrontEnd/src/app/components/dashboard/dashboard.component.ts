@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
     public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.id = 0;
+    this.resetFields()
     if(localStorage.getItem("token")==null){
       this.router.navigate(['/login']);
       this.flashMessagesService.show("Please login to view My Listing",{cssClass: 'alert-danger', timeout: 3000});
@@ -30,6 +30,14 @@ export class DashboardComponent implements OnInit {
         const response:any = res;
         this.productService.products = response.data as Product[];
     })
+  }
+
+  resetFields(){
+    this.id = 0;
+    this.title = "";
+    this.description = "";
+    this.condition = "";
+    this.price = 0;
   }
 
   onSubmit()
