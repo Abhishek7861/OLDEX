@@ -27,7 +27,11 @@
               <div class="d-flex flex-column">
                 <form (submit)="onSubmit()">
                   <div class="form-group">
-                    <div><b>Subject:</b> Product Enquiry</div>
+                    <h1>Send Email</h1>
+                    <div><b>Product Title:</b> {{title}}</div>
+                    <div><b>Product Price:</b> {{price}}</div>
+                    <br>
+                    <div><b>Subject:</b> Product Enquiry for {{title}}</div>
                     <div><b>To:</b> {{email}}</div>
                     <div><b>From:</b> {{myEmail}}</div>
                     <br>

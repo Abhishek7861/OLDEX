@@ -18,6 +18,8 @@ export class ProfileOtherComponent implements OnInit {
   email: string;
   myEmail: any;
   Message:string;
+  title: any;
+  price: any;
 
   constructor(private router: Router,
     private flashMessagesService: FlashMessagesService,
@@ -31,6 +33,8 @@ export class ProfileOtherComponent implements OnInit {
     }
     else{
       this.myEmail = localStorage.getItem("email");
+      this.title = localStorage.getItem("title");
+      this.price = localStorage.getItem("price");
       const username:any = localStorage.getItem("Username");
       this.authService.getUserByUsername(username).subscribe((data)=>{
         let profile:any = data;
@@ -53,7 +57,8 @@ export class ProfileOtherComponent implements OnInit {
         const EmailFormat = {
           "toEmail":this.email,
           "fromEmail":this.myEmail,
-          "message":this.Message
+          "message":this.Message+" \n---------------------------------------\nFor Product [Title]: "
+          +this.title+"   [Price]: "+this.price
         }
         this.OrderService.postEmail(EmailFormat).subscribe(((data)=>{
           console.log(data);

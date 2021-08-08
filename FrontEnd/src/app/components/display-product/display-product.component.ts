@@ -45,6 +45,8 @@ export class DisplayProductComponent implements OnInit {
   }
   onListedBy(pro:Product){
     localStorage.setItem("Username",pro.username);
+    localStorage.setItem("title",pro.title);
+    localStorage.setItem("price",pro.price.toString());
     this.router.navigate(['/profileOther']);
   }
 }
