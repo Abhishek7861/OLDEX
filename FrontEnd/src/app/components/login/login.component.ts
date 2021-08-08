@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(user).subscribe((data)=>{
       let responseData:any = data
       localStorage.setItem("token","Bearer "+responseData.accessToken);
-      localStorage.setItem("userInfo",responseData);
+      localStorage.setItem("email",responseData.email);
       this.toggleLogin.emit(true);
       this.router.navigate(['/dashboard']);
     });

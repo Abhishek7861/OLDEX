@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages'; 
 import { AuthService } from '../../service/auth.service';
+import {OrderService} from '../../order/order.service';
+import { ProfileService } from 'src/app/service/profile.service';
 
 @Component({
   selector: 'app-profile-other',
@@ -14,10 +16,13 @@ export class ProfileOtherComponent implements OnInit {
   username: string;
   password: string;
   email: string;
+  myEmail: any;
+  Message:string;
 
   constructor(private router: Router,
     private flashMessagesService: FlashMessagesService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private OrderService: OrderService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem("token")==null){
@@ -25,6 +30,7 @@ export class ProfileOtherComponent implements OnInit {
       this.flashMessagesService.show("Please login to view Profile",{cssClass: 'alert-danger', timeout: 3000});
     }
     else{
+      this.myEmail = localStorage.getItem("email");
       const username:any = localStorage.getItem("Username");
       this.authService.getUserByUsername(username).subscribe((data)=>{
         let profile:any = data;
@@ -34,8 +40,26 @@ export class ProfileOtherComponent implements OnInit {
         // this.address = profile.address;
         this.password = profile.password;
         this.email = profile.email;
+        this.Message = "";
       })
     }
   }
 
+  onSubmit(){
+      if(this.Message==""){
+        this.flashMessagesService.show("Cannot sent Blank Message",{cssClass: 'alert-danger', timeout: 3000});
+      }
+      else{
+        const EmailFormat = {
+          "toEmail":this.email,
+          "fromEmail":this.myEmail,
+          "message":this.Message
+        }
+        this.OrderService.postEmail(EmailFormat).subscribe(((data)=>{
+          console.log(data);
+        }))
+        this.flashMessagesService.show("Email Sent",{cssClass: 'alert-success', timeout: 3000});
+      }
+      this.ngOnInit();
+  }
 }

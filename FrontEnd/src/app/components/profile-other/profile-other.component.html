@@ -1,22 +1,41 @@
 <app-navbar></app-navbar>
 <div class="container">
   <flash-messages></flash-messages>
-<div class="mt-5">
-  <h1>Profile</h1>
-</div>
-<div class="container">
-  <div class="main-body">
-    <div class="row gutters-sm">
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
-                width="150">
-              <div class="mt-3">
-                <h4>{{name}}</h4>
-                <p class="text-secondary mb-1">{{email}}</p>
-                <a href="mailto: {{email}}" class="btn btn-primary">Send Email</a>
+  <div class="mt-5">
+    <h1>Profile</h1>
+  </div>
+  <div class="container">
+    <div class="main-body">
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+                  width="150">
+                <div class="mt-3">
+                  <h4>{{name}}</h4>
+                  <p class="text-secondary mb-1">{{email}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column">
+                <form (submit)="onSubmit()">
+                  <div class="form-group">
+                    <div><b>Subject:</b> Product Enquiry</div>
+                    <div><b>To:</b> {{email}}</div>
+                    <div><b>From:</b> {{myEmail}}</div>
+                    <br>
+                    <label for="exampleFormControlTextarea1"><b>Message</b></label>
+                    <textarea class="form-control" name="Message" [(ngModel)]="Message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
               </div>
             </div>
           </div>
@@ -24,5 +43,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

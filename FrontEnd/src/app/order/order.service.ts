@@ -20,6 +20,12 @@ export class OrderService {
     return this.http.post("http://localhost:8080/api/test/order",order,{headers:headers});
   }
 
+  postEmail(Email: any){
+    let authValue:any = localStorage.getItem("token");
+    let headers = new HttpHeaders({'Authorization':authValue});
+    return this.http.post("http://localhost:8080/sendEmail",Email,{headers:headers});
+  }
+
   getOrder(){
     let authValue:any = localStorage.getItem("token");
     let headers = new HttpHeaders({'Authorization':authValue});
