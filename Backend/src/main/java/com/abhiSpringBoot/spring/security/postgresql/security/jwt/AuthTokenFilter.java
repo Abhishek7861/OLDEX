@@ -37,6 +37,12 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String username = jwtUtils.getUserNameFromJwtToken(jwt);
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        /*
+        * To, let us manually trigger authentication and then set the resulting
+        * Authentication object into the current SecurityContext used by the framework
+        * to hold the currently logged-in user:
+        * */
+
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
             userDetails.getAuthorities());
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
