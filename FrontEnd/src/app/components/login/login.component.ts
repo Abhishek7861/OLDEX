@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
     if(localStorage.getItem("token")!=null){
       this.router.navigate(['/dashboard']);
     }
+    else{
+      this.flashMessagesService.show("Session Expired Please Login!",{cssClass: 'alert-danger', timeout: 3000});
+    }
     const user = {
       username:"",
       password:""
